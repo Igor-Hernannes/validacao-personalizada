@@ -32,5 +32,4 @@ router.post(
     return res.render("pages/index", { resultado: req.body, "listaErros": errors, "campos": req.body });
   }
 );
-
 module.exports = router; 
