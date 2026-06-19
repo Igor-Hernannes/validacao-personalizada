@@ -1,7 +1,7 @@
 var express = require("express");
 var router = express.Router();
 const { body, validationResult } = require("express-validator");
-var {validarCNPJ, validarCPF } = require("../helpers/validacoes");
+var {validarCPF } = require("../helpers/validacoes");
 
 router.get("/", function (req, res) {
   res.render("pages/index", { resultado: null, "listaErros": null, "campos": { "nome": "", email: "", "cpf": "" } });
@@ -14,7 +14,7 @@ router.post(
   body("email")
     .isEmail().withMessage('O e-mail deve ser válido!'),
   body("cpf")
-    .isLength({ min: 11, max: 11 }).withMessage('O CPF tem 18 caracteres!')
+    .isLength({ min: 11}).withMessage('O CPF tem 11 caracteres!')
     .custom((value) => {
       if (validarCPF(value)) {
         return true;

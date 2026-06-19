@@ -23,14 +23,14 @@
                 msgErro.email = itemErro.msg;            
              }  
              if (itemErro.path  == "cpf"){
-                cssErro.cnpj = "erro";
-                msgErro.cnpj = itemErro.msg;                
+                cssErro.cpf = "erro";
+                msgErro.cpf = itemErro.msg;                
              }  
          }); 
      }; %>
 
     <form method="post" action="/index">
-        <label for="nome">Razão Social:</label>
+        <label for="nome">Nome Completo:</label>
         <input type="text" name="nome" id="nome" value="<%= campos.nome %>" class="<%= cssErro.nome %>">
         <span><%= msgErro.nome %></span>
 
@@ -45,6 +45,12 @@
         <div><%= msgErro.cpf %></div>
 
         <br>
+        <label for="salario">Digite o seu salário:</label>
+        <input type="text" name="salario" id="salario" value="<%= campos.salario %>" class="<%= cssErro.salario %>">
+        <div><%= msgErro.salario %></div>
+        <br>
+
+        <br>
         <input type="submit" value="Enviar">
     </form>
 
@@ -53,6 +59,9 @@
         <p>Nome: <%= resultado.nome %>  </p>
         <p>e-mail: <%= resultado.email %> </p>
         <p>CPF: <%= resultado.cpf%> </p>
+         <h2>Salário atual: <%= retorno.salario %></h2>
+        <h2>Porcentagem de aumento: <%= retorno.porcentagem %>%</h2>
+        <h2>Aumento: <%= retorno.aumento %></h2>
     <% }else{%>
         <h2>Não temos retorno</h2>
     <% }%>

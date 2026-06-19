@@ -18,3 +18,6 @@ app.use("/", rotas);
 app.listen(port, () => {
   console.log(`Servidor no ar, ouvindo na porta ${port}\nhttp://localhost:${port}`);
 });
+
+
+// Igor Hernannes N26 | Caio Taquemoto N09
